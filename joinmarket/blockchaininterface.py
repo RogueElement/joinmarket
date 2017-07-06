@@ -1358,3 +1358,16 @@ class RegtestBitcoinCoreInterface(BitcoinCoreInterface):
 #
 # if __name__ == '__main__':
 #     main()
+class BtcdInterface(BlockchainInterface):
+    #from joinmarket.wallet import BtcdWallet
+    def __init__(self, jsonRpc, network):
+        pass
+    def get_wallet_name(wallet):
+        pass
+    def sync_wallet(self, walle):
+        pass
+    def get_address_usages(self, wallet):
+        pass
+    def sync_addresses(self, wallet):
+        pass
+
