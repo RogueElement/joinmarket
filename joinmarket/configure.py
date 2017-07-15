@@ -390,7 +390,7 @@ def get_blockchain_interface_instance(_config):
         wallet_rpc_user = _config.get("BLOCKCHAIN", "wallet_rpc_user")
         wallet_rpc_password = _config.get("BLOCKCHAIN", "wallet_rpc_password")
         rpc = JsonRpc(rpc_host, rpc_port, rpc_user, rpc_password)
-        wallet_rpc = JsonRpc(rpc_host, rpc_port, rpc_user, rpc_password)
+        wallet_rpc = JsonRpc(wallet_rpc_host, wallet_rpc_port, wallet_rpc_user, wallet_rpc_password)
         bc_interface = BtcdInterface(rpc, wallet_rpc, network)
     elif source == 'json-rpc':
         bitcoin_cli_cmd = _config.get("BLOCKCHAIN",
