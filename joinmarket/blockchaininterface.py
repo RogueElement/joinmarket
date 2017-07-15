@@ -1358,16 +1358,20 @@ class RegtestBitcoinCoreInterface(BitcoinCoreInterface):
 #
 # if __name__ == '__main__':
 #     main()
-class BtcdInterface(BlockchainInterface):
+
+class BtcdInterface(BitcoinCoreInterface): 
     #from joinmarket.wallet import BtcdWallet
-    def __init__(self, jsonRpc, network):
-        pass
-    def get_wallet_name(wallet):
-        pass
-    def sync_wallet(self, walle):
-        pass
+    def __init__(self, jsonRpc, walletrpc, network):
+        super(BtcdInterface, self).__init__(jsonRpc, network)
+        self.wallet_rpc = walletrpc
+    def sync_wallet(self, wallet, fast): # I sure hope this works, removed the recursive part
+        self.get_address_usages(wallet)  # fast option, can't test now
+        self.sync_unspent(wallet)
     def get_address_usages(self, wallet):
+        #Wallet Service should be running on btcwallet
+        #I'm stuck here and it seems this method is only needed for joinmarket wallets
+        adg = self.wallet_rpc("Accounts", [])
         pass
     def sync_addresses(self, wallet):
+        #Also only needed for join market wallets
         pass
-
